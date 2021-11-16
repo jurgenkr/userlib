@@ -20,6 +20,7 @@ main(int argc, char **argv)
 		printf("Error registering\n");
 		exit(EXIT_FAILURE);
 	}
+	printf("Successfully registered\n");
 
 	for(int i = 0; i < 50; i++) {
 		printf("Process %d completing iteration %d\n", getpid(), i);
