@@ -14,9 +14,12 @@ main(int argc, char **argv)
 {
 	int err;
 
+	printf("Registering process\n");
 	err = register_process();
-	if (err < 0)
+	if (err < 0) {
+		printf("Error registering\n");
 		exit(EXIT_FAILURE);
+	}
 
 	for(int i = 0; i < 50; i++) {
 		printf("Process %d completing iteration %d\n", getpid(), i);
@@ -26,7 +29,10 @@ main(int argc, char **argv)
 	}
 
 	// deregister the process
+	printf("Deregistering process\n");
 	err = withdraw_process();
-	if (err < 0)
+	if (err < 0) {
+		printf("Error deregistering process\n");
 		exit(EXIT_FAILURE);
+	}
 }
